@@ -1,0 +1,99 @@
+<!--Copyright (c) 2011, John McCollum / 360innovate
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <title>BigMenu</title>
+    <link rel="stylesheet" href="styles.css" />
+    
+    <script type="text/javascript"> 
+      var djConfig = {
+         parseOnLoad: false,
+         modulePaths: {
+            "innovate":"../../" // points to root folder. Some jiggery-pokery for release purposes
+         }
+      }
+    </script>
+    
+    <script src="dojo-release-1.6.1/dojo/dojo.js"></script>
+   
+    <script>
+        dojo.require('innovate.BigMenu');
+        dojo.ready(function(){
+            new innovate.BigMenu({
+                menu: dojo.byId('menu')
+            }); 
+        });
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li>
+            <a href="#">item 1</a>
+            <ul>
+                <li><a href="#">Submenu item 1</a></li>
+                <li><a href="#">Submenu item 2</a></li>
+                <li><a href="#">Submenu item 3</a></li>
+                <li><a href="#">Submenu item 4</a></li>
+                <li><a href="#">Submenu item 5</a></li>
+                <li><a href="#">Submenu item 6</a></li>
+                <li><a href="#">Submenu item 7</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">item 2</a>
+            <ul>
+                <li><a href="#">Submenu item 1</a></li>
+                <li><a href="#">Submenu item 2</a></li>
+                <li><a href="#">Submenu item 3</a></li>
+                <li><a href="#">Submenu item 4</a></li>
+                <li><a href="#">Submenu item 5</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">item 3</a>
+            <ul>
+                <li><a href="#">Submenu item 1</a></li>
+                <li><a href="#">Submenu item 2</a></li>
+                <li><a href="#">Submenu item 3</a></li>
+                <li><a href="#">Submenu item 4</a></li>
+                <li><a href="#">Submenu item 5</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">item 4</a>
+            <ul>
+                <li><a href="#">Submenu item 1</a></li>
+                <li><a href="#">Submenu item 2</a></li>
+                <li><a href="#">Submenu item 3</a></li>
+                <li><a href="#">Submenu item 4</a></li>
+                <li><a href="#">Submenu item 5</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">item 5</a>
+            <ul>
+                <li><a href="#">Submenu item 1</a></li>
+                <li><a href="#">Submenu item 2</a></li>
+                <li><a href="#">Submenu item 3</a></li>
+                <li><a href="#">Submenu item 4</a></li>
+                <li><a href="#">Submenu item 5</a></li>
+            </ul>
+        </li>
+    </ul>
+    
+    <div id="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget odio enim. Nulla volutpat porttitor tempus. Proin vitae iaculis eros. Donec eu neque non sapien bibendum semper. Quisque ut dignissim libero. Nulla accumsan accumsan enim, sagittis semper nulla tincidunt vel. Nullam laoreet ante eget purus euismod vehicula. Donec velit urna, posuere vitae tincidunt eget, scelerisque porta enim. Suspendisse id nisl sed tortor vulputate auctor at ac urna. Pellentesque ullamcorper molestie lorem, vel dignissim mauris sodales nec.</p>
+        <p>Suspendisse porta justo sit amet turpis fermentum ac pulvinar ligula accumsan. Curabitur sagittis turpis elit, id euismod nisl. Nulla facilisi. Integer elementum ipsum a sem laoreet pellentesque. Duis placerat auctor dolor eu lobortis. Sed eleifend libero ut orci aliquam id ultrices nisi vehicula. Aenean ut neque a urna ornare facilisis. Donec neque urna, facilisis id pellentesque vel, venenatis eu libero.</p>
+    </div>
+</body>
+</html>
