@@ -22,11 +22,13 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
    _submenuStatus: "hidden",
    _origHeight: 0,
    _animOutTimer: null,
+   _animInTimer:null,
    
    // public options
    menu: null,
    animTime: 200,
    hideDelay: 400,
+   showDelay: 150,
    
    constructor: function(){
       this.inherited(arguments);
@@ -48,12 +50,15 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
       
       dojo.connect(this.menu, "onmouseenter", dojo.hitch(this, function(){
          clearTimeout(this._animOutTimer);
-         if(this._submenuStatus == 'hidden'){
-            this.animateIn(this.menu);
-         }
+         this._animInTimer = setTimeout(dojo.hitch(this, function(){
+           if(this._submenuStatus == 'hidden'){
+               this.animateIn(this.menu);
+            } 
+         }),this.showDelay); 
       }));
       
       dojo.connect(this.menu, "onmouseleave", dojo.hitch(this, function(){
+         clearTimeout(this._animInTimer);
          this._animOutTimer = setTimeout(dojo.hitch(this, function(){
             this.animateOut(this.menu);
          }), this.hideDelay);
