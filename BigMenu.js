@@ -13,6 +13,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 dojo.provide("innovate.BigMenu");
 
 dojo.require('dijit._Widget');
+dojo.require('dojo.fx.easing');
 
 // change this to suit your needs
 dojo.declare("innovate.BigMenu", [dijit._Widget], {
@@ -29,6 +30,7 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
    animTime: 200,
    hideDelay: 400,
    showDelay: 150,
+   easing: 'linear',
    
    constructor: function(){
       this.inherited(arguments);
@@ -73,6 +75,7 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
       this._animObj = dojo.animateProperty({
          node: menu,
          duration: this.animTime,
+         easing: dojo.fx.easing[this.easing],
          properties: {
             height: {start: this._origHeight, end: this._maxHeight + this._origHeight + dojo.style(this.menu, 'paddingTop')}
          },
@@ -88,6 +91,7 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
       this._animObj = dojo.animateProperty({
          node: menu,
          duration: this.animTime,
+         easing: dojo.fx.easing[this.easing],
          properties: {
             height: {start: dojo.position(menu).h, end: this._origHeight}
          },
