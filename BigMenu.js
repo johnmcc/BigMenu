@@ -26,11 +26,13 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
    _animInTimer:null,
    
    // public options
-   menu: null,
-   animTime: 200,
-   hideDelay: 400,
-   showDelay: 150,
-   easing: 'linear',
+   menu: null,          // main UL element
+   animInTime: 200,     // length of time to animate in
+   animOutTime: 200,    // length of time to animate out
+   hideDelay: 400,      // length of time that the user needs to mouseout before the hide animation starts
+   showDelay: 150,      // length of time that the user needs to mouseover before the show animation starts
+   easingIn: 'linear',  // easing for the show animation
+   easingOut: 'linear', // easing for the hide animation
    
    constructor: function(){
       this.inherited(arguments);
@@ -39,7 +41,7 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
    postCreate: function(){
       this.inherited(arguments);
       
-      dojo.style(this.menu, {overflow: 'hidden', marginBottom: 0});
+      dojo.style(this.menu, {"overflow": 'hidden', "marginBottom": "0", "cursor": "pointer"});
       
       dojo.query("ul", this.menu).forEach(dojo.hitch(this, function(item, i){
          var menuHeight = dojo.position(item).h;
@@ -85,8 +87,8 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
       
       this._animObj = dojo.animateProperty({
          node: menu,
-         duration: this.animTime,
-         easing: dojo.fx.easing[this.easing],
+         duration: this.animInTime,
+         easing: dojo.fx.easing[this.easingIn],
          properties: {
             height: {start: this._origHeight, end: this._maxHeight + this._origHeight + dojo.style(this.menu, 'paddingTop')}
          },
@@ -101,8 +103,8 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
       
       this._animObj = dojo.animateProperty({
          node: menu,
-         duration: this.animTime,
-         easing: dojo.fx.easing[this.easing],
+         duration: this.animOutTime,
+         easing: dojo.fx.easing[this.easingOut],
          properties: {
             height: {start: dojo.position(menu).h, end: this._origHeight}
          },
