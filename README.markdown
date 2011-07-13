@@ -28,4 +28,5 @@ Options and defaults
     easingOut: 'linear', // easing for the hide animation
 
 You can also connect to the animateIn and animateOut methods:
+
     dojo.connect(bm, 'animateIn', function(){ console.log('animate in'); });
