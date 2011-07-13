@@ -14,7 +14,6 @@ dojo.require('innovate.BigMenu');
 dojo.ready(function(){
     var bm = new innovate.BigMenu({
         menu: dojo.byId('menu')
-        /* other options */
     });
 });
 
