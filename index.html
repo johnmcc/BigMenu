@@ -24,15 +24,13 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
       }
     </script>
     
-    <script src="path/to/your/dojo.js"></script>
-    <!--<script src="dojo-release-1.6.1/dojo/dojo.js"></script>-->
+    <!--<script src="path/to/your/dojo.js"></script>-->
+    <script src="dojo-release-1.6.1/dojo/dojo.js"></script>
    
     <script>
         dojo.require('innovate.BigMenu');
         dojo.ready(function(){
-            var foo = new innovate.BigMenu({
-                menu: dojo.byId('menu')
-            });
+            var foo = new innovate.BigMenu({}, dojo.byId('menu'));
         });
     </script>
 </head>

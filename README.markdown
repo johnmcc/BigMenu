@@ -12,14 +12,11 @@ If you download this as an archive, make sure you include Dojo. Download the ful
     // assumes that it resides in /innovate, and that /innovate is in your djConfig = { modulePaths: { "innovate":"path/to/innovate" } };
     dojo.require('innovate.BigMenu');
     dojo.ready(function(){
-        var bm = new innovate.BigMenu({
-            menu: dojo.byId('menu')
-        });
+        var bm = new innovate.BigMenu({ /* options */ }, dojo.byId('menu'));
     });
 
 Options and defaults
 --------------------
-    menu: null,          // main UL element
     animInTime: 200,     // length of time to animate in
     animOutTime: 200,    // length of time to animate out
     hideDelay: 400,      // length of time that the user needs to mouseout before the hide animation starts

@@ -26,7 +26,6 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
    _animInTimer:null,
    
    // public options
-   menu: null,          // main UL element
    animInTime: 200,     // length of time to animate in
    animOutTime: 200,    // length of time to animate out
    hideDelay: 400,      // length of time that the user needs to mouseout before the hide animation starts
@@ -40,35 +39,35 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
    
    postCreate: function(){
       this.inherited(arguments);
+
+      dojo.style(this.domNode, {"overflow": 'hidden', "marginBottom": "0", "cursor": "pointer"});
       
-      dojo.style(this.menu, {"overflow": 'hidden', "marginBottom": "0", "cursor": "pointer"});
-      
-      dojo.query("ul", this.menu).forEach(dojo.hitch(this, function(item, i){
+      dojo.query("ul", this.domNode).forEach(dojo.hitch(this, function(item, i){
          var menuHeight = dojo.position(item).h;
          this._maxHeight = menuHeight > this._maxHeight ? menuHeight:this._maxHeight;
       }));
       
-      dojo.query("ul", this.menu).forEach(dojo.hitch(this, function(item, i){ dojo.style(item, 'height', this._maxHeight + 'px'); }));
+      dojo.query("ul", this.domNode).forEach(dojo.hitch(this, function(item, i){ dojo.style(item, 'height', this._maxHeight + 'px'); }));
       
-      this._origHeight = dojo.position(this.menu).h;
+      this._origHeight = dojo.position(this.domNode).h;
       
-      dojo.query('a', this.menu).forEach(dojo.hitch(this, function(item, i){
+      dojo.query('a', this.domNode).forEach(dojo.hitch(this, function(item, i){
          dojo.connect(item, 'onfocus', dojo.hitch(this, this._attachIn))
       }));
       
-      dojo.query('a', this.menu).forEach(dojo.hitch(this, function(item, i){
+      dojo.query('a', this.domNode).forEach(dojo.hitch(this, function(item, i){
          dojo.connect(item, 'onblur', dojo.hitch(this, this._attachOut))
       }));
       
-      dojo.connect(this.menu, "onmouseenter", dojo.hitch(this, this._attachIn));
-      dojo.connect(this.menu, "onmouseleave", dojo.hitch(this, this._attachOut));
+      dojo.connect(this.domNode, "onmouseenter", dojo.hitch(this, this._attachIn));
+      dojo.connect(this.domNode, "onmouseleave", dojo.hitch(this, this._attachOut));
    },
    
    _attachIn: function(){
       clearTimeout(this._animOutTimer);
       this._animInTimer = setTimeout(dojo.hitch(this, function(){
         if(this._submenuStatus == 'hidden'){
-            this.animateIn(this.menu);
+            this.animateIn(this.domNode);
          } 
       }),this.showDelay);
    },
@@ -76,7 +75,7 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
    _attachOut: function(){
       clearTimeout(this._animInTimer);
       this._animOutTimer = setTimeout(dojo.hitch(this, function(){
-         this.animateOut(this.menu);
+         this.animateOut(this.domNode);
       }), this.hideDelay);
    },
    
@@ -90,7 +89,7 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
          duration: this.animInTime,
          easing: dojo.fx.easing[this.easingIn],
          properties: {
-            height: {start: this._origHeight, end: this._maxHeight + this._origHeight + dojo.style(this.menu, 'paddingTop')}
+            height: {start: this._origHeight, end: this._maxHeight + this._origHeight + dojo.style(this.domNode, 'paddingTop')}
          },
          onEnd: dojo.hitch(this, function(){ this._submenuStatus = 'shown'; })
       }).play();
