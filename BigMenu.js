@@ -13,10 +13,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 dojo.provide("innovate.BigMenu");
 
 dojo.require('dijit._Widget');
+dojo.require('dijit._Templated');
 dojo.require('dojo.fx.easing');
 
 // change this to suit your needs
-dojo.declare("innovate.BigMenu", [dijit._Widget], {
+dojo.declare("innovate.BigMenu", [dijit._Widget, dijit._Templated], {
    // private
    _maxHeight: 0,
    _animObj: null,
@@ -32,6 +33,13 @@ dojo.declare("innovate.BigMenu", [dijit._Widget], {
    showDelay: 150,      // length of time that the user needs to mouseover before the show animation starts
    easingIn: 'linear',  // easing for the show animation
    easingOut: 'linear', // easing for the hide animation
+   
+   buildRendering: function(){
+      this.domNode = this.srcNodeRef;
+      // call this._attachTemplateNodes to parse the template,
+      // which is actually just the srcnode
+      this._attachTemplateNodes(this.domNode);
+   },
    
    constructor: function(){
       this.inherited(arguments);

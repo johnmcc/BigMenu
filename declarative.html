@@ -17,7 +17,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     
     <script type="text/javascript"> 
       var djConfig = {
-         parseOnLoad: false,
+         parseOnLoad: true,
          modulePaths: {
             "innovate":"../../" // points to root folder. Some jiggery-pokery for release purposes
          }
@@ -29,13 +29,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
    
     <script>
         dojo.require('innovate.BigMenu');
-        dojo.ready(function(){
-            var foo = new innovate.BigMenu({}, dojo.byId('menu'));
-        });
     </script>
 </head>
 <body>
-    <ul id="menu">
+    <ul data-dojo-type="innovate.BigMenu" data-dojo-props="animInTime:1000" id="menu">
         <li>
             <a href="#">item 1</a>
             <ul>
