@@ -25,12 +25,15 @@ Alternatively, you can use the declarative syntax, if you like. Make sure you se
     }
 
 Require BigMenu:
+
     dojo.require('innovate.BigMenu');
 
 Add the dojoType and any other options to the UL. Using pre-HTML5 syntax:
+
     <ul dojoType="innovate.BigMenu" animInTime="1000" id="menu">
 
 Or HTML5 sytanx:
+
     <ul data-dojo-type="innovate.BigMenu" data-dojo-props="animInTime:1000" id="menu">
 
 Options and defaults
