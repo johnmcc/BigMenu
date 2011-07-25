@@ -1,7 +1,9 @@
 BigMenu
 =======
 
-A menu system designed to emulate the functionality of http://www.bu.edu/.
+A menu system designed to emulate the functionality of http://www.bu.edu/. 
+
+[Demo](http://media.360innovate.co.uk/demos/bigmenu/)
 
 Requires Dojo.
 
