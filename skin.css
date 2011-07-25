@@ -10,42 +10,78 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 
 body {
-    width:      978px;
-    margin:     0 auto;
-    padding-top:10px;
+   font-family:   Arial, Helvetica, sans-serif;
+   color:         #444;
 }
 
 #menu {
-    float:      left;
-    margin:     0 0 20px 0;
-    padding:    0;
-    position:   relative;
-    clear:      both;
+   height:        40px;
+   background:    #444;	
 }
 
 #menu li {
-    float:      left;
-    display:    inline;
-    width:      195px;
-    text-align: center;
-    font-size:  18px;
+   float:         left;
+   display:       inline;
+   width:         195px;
+   text-align:    center;
+   font-size:     18px;
+}
+
+#menu li a{
+   color:         #FFFFFF;
+   text-decoration:none;
+   line-height:   40px;
+   width:         194px;
+   background:    #999999;
+   display:       block;
+   height:        40px;
+   border-right:  1px solid #777;
+}
+
+#menu li a:hover{
+   text-decoration:underline;
+}
+
+
+#menu ul {
+   position:      absolute;
+   top:           41px;
+   z-index:       1000;
+   width:         194px !important;
+   background:    #444;
+   margin:        0;
+   padding:	  10px 0;
+   border-right:  1px solid #222;
 }
 
 #menu ul {
-    position:   absolute;
-    top:        21px;
-    z-index:    1000;
-    width:      184px;
+   clear:         both;
+   text-align:    left;
+   background:    #444;
+   width:         auto;
+
 }
 
-#menu ul li {
-   clear:       both;
-   text-align:  left;
-   width:       auto;
+#menu ul li a{
+   color:         #ccc;
+   text-decoration:none;
+   display:	  block;
+   padding:	  5px 10px;
+   font-size:     12px;
+   width:         100%;
+   border:        0;
+   width:         174px;
+   line-height:   normal;
+   background:    none;
+   height:        auto;	
+}
+
+#menu ul li a:hover{
+   color:         #fff;
+   background:    #333;
+   text-decoration:none;
 }
 
 #content {
-    clear:      both;
+   clear:         both;
 }
-
-

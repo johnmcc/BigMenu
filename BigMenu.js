@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2011, John McCollum / 360innovate
+Copyright (c) 2011, John McCollum / Allan MacIver / 360innovate
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -48,7 +48,7 @@ dojo.declare("innovate.BigMenu", [dijit._Widget, dijit._Templated], {
    postCreate: function(){
       this.inherited(arguments);
 
-      dojo.style(this.domNode, {"overflow": 'hidden', "marginBottom": "0", "cursor": "pointer"});
+      dojo.style(this.domNode, {"overflow": 'hidden', "cursor": "pointer"});
       
       dojo.query("ul", this.domNode).forEach(dojo.hitch(this, function(item, i){
          var menuHeight = dojo.position(item).h;
