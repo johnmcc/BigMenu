@@ -21,7 +21,7 @@ dojo.declare("innovate.BigMenu", [dijit._Widget, dijit._Templated], {
    // private
    _maxHeight: 0,
    _animObj: null,
-   _submenuStatus: "hidden",
+   _submenuHidden: true,
    _origHeight: 0,
    _animOutTimer: null,
    _animInTimer:null,
@@ -74,7 +74,7 @@ dojo.declare("innovate.BigMenu", [dijit._Widget, dijit._Templated], {
    _attachIn: function(){
       clearTimeout(this._animOutTimer);
       this._animInTimer = setTimeout(dojo.hitch(this, function(){
-        if(this._submenuStatus == 'hidden'){
+        if(this._submenuHidden){
             this.animateIn(this.domNode);
          } 
       }),this.showDelay);
@@ -99,7 +99,7 @@ dojo.declare("innovate.BigMenu", [dijit._Widget, dijit._Templated], {
          properties: {
             height: {start: this._origHeight, end: this._maxHeight + this._origHeight + dojo.style(this.domNode, 'paddingTop')}
          },
-         onEnd: dojo.hitch(this, function(){ this._submenuStatus = 'shown'; })
+         onEnd: dojo.hitch(this, function(){ this._submenuHidden = false; })
       }).play();
    },
    
@@ -115,7 +115,7 @@ dojo.declare("innovate.BigMenu", [dijit._Widget, dijit._Templated], {
          properties: {
             height: {start: dojo.position(menu).h, end: this._origHeight}
          },
-         onEnd: dojo.hitch(this, function(){ this._submenuStatus = "hidden"; })
+         onEnd: dojo.hitch(this, function(){ this._submenuHidden = true; })
       }).play();
    }
 });
