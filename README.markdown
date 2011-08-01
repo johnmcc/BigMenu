@@ -3,7 +3,7 @@ BigMenu
 
 A menu system designed to emulate the functionality of http://www.bu.edu/. 
 
-[Demo](http://media.360innovate.co.uk/demos/bigmenu/)
+[Demo](http://media.360innovate.co.uk/demos/bigmenu/) and [blog post](http://www.360innovate.co.uk/blog/2011/08/dojo-drop-down-menus/)
 
 Requires Dojo.
 
